@@ -1,12 +1,15 @@
 open class Employee(
   var name: String,
   var cpf: String,
-  private val salary: Double,
+  val salary: Double,
   var compensation: Double? = null,
 ){
-  var bonuses: Double? = 0.0
-    get() = salary * 0.1;
+
+ open fun getBonuses(): Double {
+   return salary * 0.1;
+ }
 }
+
 
 /**
   Compensation is:

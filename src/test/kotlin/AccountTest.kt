@@ -8,8 +8,6 @@ class AccountTest {
   val bank = Bank();
   private val account = Account("Michel", 10000)
 
-
-
   @BeforeEach
   fun setUp() {
     bank.accounts = arrayListOf(account)
@@ -33,6 +31,4 @@ class AccountTest {
   fun shouldHasAccountNumber(){
     DefaultAsserter.assertEquals("Should has account number", 10000, account.accountNumber)
   }
-
-
 }

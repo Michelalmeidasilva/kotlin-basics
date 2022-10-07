@@ -1,5 +1,3 @@
-import java.math.BigDecimal
-
 class Account(val titular: String,  val accountNumber: Int) {
   var balance: Double = 0.0
 

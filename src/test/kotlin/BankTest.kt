@@ -17,18 +17,18 @@ class BankTest {
 
     bank = Bank(employees = employees, accounts = list, employeesSupervisors = employeesSupervisors )
 
-    bank?.depositMoney(list?.get(0),1000.0)
+    bank?.operations?.deposit(list?.get(0),1000.0)
 
   }
 
   @Test
   fun shouldHaveTwoAccounts() {
-    assertEquals("Should be a list with two elements", 2, bank?.getAccountsQuantities())
+    assertEquals("Should be a list with two elements", 2, bank?.details?.getAccountsQuantities())
   }
 
   @Test
   fun shouldSupervisorEmployeeLogin(){
-    assertEquals("should pass with password tfpw7erg", true, bank?.auth("Juquinha", "tfpw7erg"))
+    assertEquals("should pass with password tfpw7erg", true, bank?.access?.auth("Juquinha", "tfpw7erg"))
   }
 
   @Test
@@ -37,7 +37,7 @@ class BankTest {
     val jose = bank?.accounts?.find {it -> it.accountNumber == 2030}
 
     if (michel != null && jose != null) {
-      bank?.transferMoney(michel, jose, 300.0)
+      bank?.operations?.transferMoney(michel, jose, 300.0)
     }
 
     assertEquals("should have 300 at jose account ", 300.0, bank?.accounts?.find { it -> it.accountNumber == 2030 }?.balance)
@@ -49,7 +49,7 @@ class BankTest {
     val jose = bank?.accounts?.find {it -> it.accountNumber == 2030}
 
     if (michel != null && jose != null) {
-      bank?.transferMoney(michel, jose, 300.0)
+      bank?.operations?.transferMoney(michel, jose, 300.0)
     }
 
     assertEquals("should have 700 at michel account ", 700.0, bank?.accounts?.find { it -> it.accountNumber == 1000 }?.balance)
@@ -60,10 +60,10 @@ class BankTest {
     val michel = bank?.accounts?.find { it -> it.accountNumber == 1000 }
 
     if (michel != null) {
-      bank?.depositMoney(michel,4000.0)
+      bank?.operations?.deposit(michel,4000.0)
     }
 
-    DefaultAsserter.assertEquals("Should has account number", 4000.0, bank?.filterAccountByNumber(1000)?.get(0)?.balance )
+    DefaultAsserter.assertEquals("Should has account number", 4000.0, bank?.filters?.byAccountNumber(1000)?.get(0)?.balance )
   }
 
   @Test
@@ -72,10 +72,10 @@ class BankTest {
     val michel = bank?.accounts?.find { it -> it.accountNumber == 1000 }
 
     if (michel != null) {
-      bank?.withdraw(michel, 300.0)
+      bank?.operations?.withdraw(michel, 300.0)
     }
 
-    DefaultAsserter.assertEquals("Should have withdrew",700.0, bank?.filterAccountByNumber(1000)?.get(0)?.balance )
+    DefaultAsserter.assertEquals("Should have withdrew",700.0, bank?.filters?.byAccountNumber(1000)?.get(0)?.balance )
   }
 
   @Test
@@ -83,10 +83,10 @@ class BankTest {
     val michel = bank?.accounts?.find { it -> it.accountNumber == 1000 }
 
     if (michel != null) {
-      bank?.withdraw(michel, 300.001)
+      bank?.operations?.withdraw(michel, 300.001)
     }
 
-    DefaultAsserter.assertEquals("Should have withdrew", 699.999,bank?.filterAccountByNumber(1000)?.get(0)?.balance )
+    DefaultAsserter.assertEquals("Should have withdrew", 699.999,bank?.filters?.byAccountNumber(1000)?.get(0)?.balance )
   }
 
 
@@ -97,7 +97,7 @@ class BankTest {
 
     val exception = assertFailsWith<Exception> {
       if (michel != null) {
-        bank?.withdraw(michel, 3000.0)
+        bank?.operations?.withdraw(michel, 3000.0)
       }
     }
 
@@ -111,7 +111,7 @@ class BankTest {
 
     val exception = assertFailsWith<Exception> {
       if (michel != null) {
-        bank?.withdraw(michel, -30000.0)
+        bank?.operations?.withdraw(michel, -30000.0)
       }
     }
 
@@ -124,7 +124,7 @@ class BankTest {
 
     val exception = assertFailsWith<Exception> {
       if (michel != null) {
-        bank?.depositMoney(michel, -30000.0)
+        bank?.operations?.deposit(michel, -30000.0)
       }
     }
 

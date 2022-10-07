@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 
-internal class EmployeeTest {
-  var employe: Employee? = null;
+internal class SupervisorTest {
+  var employe: Supervisor? = null;
 
   @BeforeEach
   fun setUp() {
-    employe = Employee(name= "Michel", salary= 1000.0, cpf="04051133079")
+    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "123234")
   }
 
   @AfterEach
@@ -36,6 +36,6 @@ internal class EmployeeTest {
 
   @Test
   fun getBonuses() {
-    assertEquals(100.0, employe?.getBonuses(), "should have a 100.0 value")
+    assertEquals(200.0, employe?.getBonuses(), "should have a 100.0 value")
   }
 }

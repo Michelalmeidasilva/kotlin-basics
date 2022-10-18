@@ -1,14 +1,12 @@
 import java.math.BigDecimal
 
 class Operations(private val accounts: ArrayList<Account>?) {
+  fun createAccount(account: Account) = this.existsAccount(account) ?: this.registerAccount(account)
 
-  private fun existsAccount(account: Account): Account? = accounts?.find { conta -> conta.accountNumber == account.accountNumber }
+  private fun existsAccount(account: Account): Account? = accounts?.find { personAccount -> personAccount.accountNumber == account.accountNumber }
 
-  fun create(account: Account) = this.existsAccount(account) ?: this.registerAccount(account)
 
   private fun registerAccount(account: Account) = accounts?.add(account);
-
-
 
   fun transferMoney(accountOrigin: Account, accountDestination: Account, amount: Double ): Boolean{
     if(existsAccount(accountOrigin) !== null && existsAccount(accountDestination) !== null){
@@ -21,11 +19,9 @@ class Operations(private val accounts: ArrayList<Account>?) {
     return false;
   }
 
-
-
   fun deposit(accountDestination: Account, amount: Double) {
     if (amount > 0.0) {
-      accounts?.forEachIndexed { index, it ->
+      accounts?.forEach{ it ->
         if(accountDestination.accountNumber === it.accountNumber){
           it?.balance =+ amount;
         }

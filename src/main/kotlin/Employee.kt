@@ -4,10 +4,8 @@ open class Employee(
   val salary: Double,
   var compensation: Double? = null,
 ){
+ open val bonuses: Double  get() = salary * 0.1;
 
- open fun getBonuses(): Double {
-   return salary * 0.1;
- }
 }
 
 

@@ -7,7 +7,7 @@ class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: Array
   init{
     if(accounts?.size!! > 1){
         accounts?.forEach {
-          this.operations?.create(it)
+          this.operations?.createAccount(it)
         }
       filters = FilterAccounts(accounts)
       operations = Operations(accounts)

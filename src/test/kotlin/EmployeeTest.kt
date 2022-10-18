@@ -36,6 +36,6 @@ internal class EmployeeTest {
 
   @Test
   fun getBonuses() {
-    assertEquals(100.0, employe?.getBonuses(), "should have a 100.0 value")
+    assertEquals(100.0, employe?.bonuses, "should have a 100.0 value")
   }
 }

@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 
-internal class SupervisorTest {
-  var employe: Supervisor? = null;
+internal class HeadManagerTest {
+  var employe: HeadManager? = null;
 
   @BeforeEach
   fun setUp() {
-    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "123234")
+    employe = HeadManager(name= "Michel", salary= 10000.0, cpf="04051133079", password = "123234", profit = 900.0)
   }
 
   @AfterEach
@@ -36,6 +36,12 @@ internal class SupervisorTest {
 
   @Test
   fun getBonuses() {
-    assertEquals(200.0, employe?.bonuses, "should have a 100.0 value")
+    assertEquals(3000.0, employe?.bonuses, "should have a 3000.0 value")
+  }
+
+
+  @Test
+  fun getProfit() {
+    assertEquals(900.0, employe?.profit, "should have a 900.0 value")
   }
 }

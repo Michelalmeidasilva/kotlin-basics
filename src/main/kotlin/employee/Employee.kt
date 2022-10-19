@@ -1,3 +1,5 @@
+package employee
+
 open class Employee(
   var name: String,
   var cpf: String,
@@ -5,7 +7,6 @@ open class Employee(
   var compensation: Double? = null,
 ){
  open val bonuses: Double  get() = salary * 0.1;
-
 }
 
 
@@ -20,6 +21,6 @@ open class Employee(
   Paid time off (vacation days, sick days and holidays)
   Retirement plans
 
-  Employee assistance programs that offer legal advice, counseling and other services
+  employee.Employee assistance programs that offer legal advice, counseling and other services
   Gym memberships
  */

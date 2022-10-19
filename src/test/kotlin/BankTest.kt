@@ -1,4 +1,9 @@
+import bank.Bank
+import employee.Employee
+import employee.HeadManager
+import employee.Supervisor
 import org.junit.jupiter.api.BeforeEach
+import user.Account
 import kotlin.test.DefaultAsserter
 import kotlin.test.DefaultAsserter.assertEquals
 import kotlin.test.Test
@@ -10,12 +15,13 @@ class BankTest {
 
   @BeforeEach
   fun setUp() {
+    val employees = arrayListOf(
+      Employee("Inácio", "0303099342", 2000.0), Supervisor("Juquinha", "0305099342", 8000.0,  "tfpw7erg"),
+      HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw7erg") )
 
-    val employees = arrayListOf(Employee("Inácio", "0303099342", 2000.0))
-    val employeesSupervisors = arrayListOf(Supervisor("Juquinha", "0305099342", 8000.0,  "tfpw7erg"))
     val list: ArrayList<Account> = arrayListOf(Account("Michel Silva", 1000, ), Account("José Klaus", 2030))
 
-    bank = Bank(employees = employees, accounts = list, employeesSupervisors = employeesSupervisors )
+    bank = Bank(employees = employees, accounts = list )
 
     bank?.operations?.deposit(list?.get(0),1000.0)
 
@@ -132,4 +138,8 @@ class BankTest {
   }
 
 
+  @Test
+  fun shouldHaveAValueWithAllBonusesFromEmployees(){
+    DefaultAsserter.assertEquals("Should return a value with all bonuses",4200.0, bank?.details?.getAllBonuses() )
+  }
 }

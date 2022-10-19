@@ -1,4 +1,9 @@
-class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: ArrayList<Employee>? = ArrayList(), var employeesSupervisors: ArrayList<Supervisor>? = ArrayList()) {
+package bank
+
+import employee.*
+import user.Account
+
+class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: ArrayList<Employee>? = ArrayList()  ) {
   var filters: FilterAccounts? = null;
   var operations: Operations? = null;
   var details: Details? = null;
@@ -11,8 +16,13 @@ class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: Array
         }
       filters = FilterAccounts(accounts)
       operations = Operations(accounts)
-      access = AccessBank(employeesSupervisors)
-      details = Details(accounts)
+
+      val usersWithAuth = employees?.filter{ it ->
+        it is Supervisor || it is HeadManager
+      }  as ArrayList<EmployeeWithAuthentication>;
+
+      access = AccessBank(usersWithAuth)
+      details = Details(accounts, employees);
     }
   }
 

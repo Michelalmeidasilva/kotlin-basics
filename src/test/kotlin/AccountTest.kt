@@ -1,8 +1,9 @@
+import bank.Bank
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
+import user.Account
 import kotlin.test.DefaultAsserter
 import kotlin.test.Test
-import kotlin.test.assertFailsWith
 
 class AccountTest {
   val bank = Bank();

@@ -16,8 +16,8 @@ class BankTest {
   @BeforeEach
   fun setUp() {
     val employees = arrayListOf(
-      Employee("Inácio", "0303099342", 2000.0), Supervisor("Juquinha", "0305099342", 8000.0,  "tfpw7erg"),
-      HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw7erg") )
+      Employee("Inácio", "0303099342", 2000.0), Supervisor("Claudio", "0305049342", 6000.0,  "tfpw7erg"),
+      HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw10erg") )
 
     val list: ArrayList<Account> = arrayListOf(Account("Michel Silva", 1000, ), Account("José Klaus", 2030))
 
@@ -34,7 +34,7 @@ class BankTest {
 
   @Test
   fun shouldSupervisorEmployeeLogin(){
-    assertEquals("should pass with password tfpw7erg", true, bank?.access?.auth("Juquinha", "tfpw7erg"))
+    assertEquals("should pass with password tfpw7erg", true, bank?.access?.auth("Juquinha", "tfpw10erg"))
   }
 
   @Test
@@ -140,6 +140,18 @@ class BankTest {
 
   @Test
   fun shouldHaveAValueWithAllBonusesFromEmployees(){
-    DefaultAsserter.assertEquals("Should return a value with all bonuses",4200.0, bank?.details?.getAllBonuses() )
+    DefaultAsserter.assertEquals("Should return a value with all bonuses",3800.0, bank?.details?.getAllBonuses() )
+  }
+
+  @Test
+  fun shouldReportAllAccountsCreated(){
+    println(bank?.details?.reportAccounts())
+    DefaultAsserter.assertNotNull("Should have a string to report account",bank?.details?.reportAccounts() );
+  }
+
+  @Test
+  fun shouldReportAllEmployeesCreated(){
+    println(bank?.details?.reportEmployee())
+    DefaultAsserter.assertNotNull("Should have a string to report account",bank?.details?.reportEmployee() );
   }
 }

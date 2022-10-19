@@ -11,6 +11,22 @@ class Details(
   fun getAccountsQuantities(): Int? = accounts?.size;
 
 
+  fun reportAccounts(): String {
+    val accountsString = accounts?.foldIndexed("Titular: \t Conta: \t Saldo: \t\n") {
+        index, acc, account -> "$acc $index: ${account.toString()}\n"
+    };
+
+    return accountsString ?: "";
+  }
+
+  fun reportEmployee(): String {
+    val employeeString = employees?.foldIndexed("") {
+        index, acc, employee -> "$acc $index: ${employee.toString()}\n"
+    };
+
+    return employeeString ?: "";
+  }
+
   /**
    *
    * Refatorar para polimorfismo

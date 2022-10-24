@@ -14,26 +14,37 @@ class Operations(private val accounts: ArrayList<Account>?) {
   fun transferMoney(accountOrigin: Account, accountDestination: Account, amount: Double ): Boolean{
     if(existsAccount(accountOrigin) !== null && existsAccount(accountDestination) !== null){
       if(accountOrigin.balance >= amount ){
-        accountOrigin.balance -= amount;
+        accountOrigin.balance -= amount
         accountDestination.balance += amount;
-        return true;
+        return true
       }
     }
-    return false;
+    return false
   }
 
-  fun deposit(accountDestination: Account, amount: Double) {
+  fun deposit(accountDestination: Account?, amount: Double){
     if (amount > 0.0) {
-      accounts?.forEach{ it ->
-        if(accountDestination.accountNumber === it.accountNumber){
-          it?.balance =+ amount;
-        }
-      }
+      val accountIndex = isAValidAccount(accountDestination)
 
+      if(accountIndex != null && accounts?.get(accountIndex)!= null) {
+        accounts[accountIndex].balance =+ amount + accounts[accountIndex].taxes;
+      }
     } else {
       throw Exception("Valor negativo para deposito não é permitido")
     }
   }
+
+  private fun isAValidAccount(account: Account?): Int? {
+    var indexAccount: Int? = null
+     accounts?.forEachIndexed { index, it ->
+       if(      account?.accountNumber == it.accountNumber){
+         indexAccount = index
+       }
+    }
+
+    return indexAccount
+  }
+
 
 
   fun withdraw(accountOrigin: Account, amount: Double){

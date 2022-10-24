@@ -7,9 +7,7 @@ class Details(
   private val accounts: ArrayList<Account>?,
   private val employees: ArrayList<Employee>?,
 ) {
-
   fun getAccountsQuantities(): Int? = accounts?.size;
-
 
   fun reportAccounts(): String {
     val accountsString = accounts?.foldIndexed("Titular: \t Conta: \t Saldo: \t\n") {
@@ -27,10 +25,6 @@ class Details(
     return employeeString ?: "";
   }
 
-  /**
-   *
-   * Refatorar para polimorfismo
-   */
   fun getAllBonuses(): Double? {
     var allValues = 0.0;
 

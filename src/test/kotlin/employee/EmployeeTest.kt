@@ -1,4 +1,5 @@
-import employee.Employee
+package employee
+
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -6,7 +7,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 internal class EmployeeTest {
-  var employe: Employee? = null;
+  var employe: Employee? = null
 
   @BeforeEach
   fun setUp() {
@@ -15,7 +16,7 @@ internal class EmployeeTest {
 
   @AfterEach
   fun tearDown() {
-    employe = null;
+    employe = null
   }
 
   @Test

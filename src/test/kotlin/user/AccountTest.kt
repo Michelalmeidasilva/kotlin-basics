@@ -1,12 +1,13 @@
+package user
+
 import bank.Bank
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
-import user.Account
 import kotlin.test.DefaultAsserter
 import kotlin.test.Test
 
 class AccountTest {
-  val bank = Bank();
+  val bank = Bank()
   private val account = Account("Michel", 10000)
 
   @BeforeEach

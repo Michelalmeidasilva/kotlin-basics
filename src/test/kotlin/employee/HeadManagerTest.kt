@@ -1,12 +1,12 @@
-import employee.HeadManager
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Test
+package employee
 
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 internal class HeadManagerTest {
-  var employe: HeadManager? = null;
+  private var employe: HeadManager? = null
 
   @BeforeEach
   fun setUp() {
@@ -15,7 +15,7 @@ internal class HeadManagerTest {
 
   @AfterEach
   fun tearDown() {
-    employe = null;
+    employe = null
   }
 
   @Test

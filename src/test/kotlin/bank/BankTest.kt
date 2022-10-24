@@ -6,6 +6,7 @@ import employee.Supervisor
 import org.junit.jupiter.api.BeforeEach
 import user.Account
 import user.CheckingAccount
+import user.DepositAccount
 import kotlin.test.DefaultAsserter
 import kotlin.test.DefaultAsserter.assertEquals
 import kotlin.test.Test
@@ -20,7 +21,7 @@ class BankTest {
       Employee("Inácio", "0303099342", 2000.0), Supervisor("Claudio", "0305049342", 6000.0,  "tfpw7erg"),
       HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw10erg") )
 
-    val list: ArrayList<Account> = arrayListOf(Account("Michel Silva", 1000, ), Account("José Klaus", 2030), CheckingAccount("Robson Juventude", 2058),  CheckingAccount("Joao milao", 2055))
+    val list: ArrayList<Account> = arrayListOf(DepositAccount("Michel Silva", 1000, ), DepositAccount("José Klaus", 2030), CheckingAccount("Robson Juventude", 2058),  CheckingAccount("Joao milao", 2055))
     bank = Bank(employees = employees, accounts = list )
 
     bank?.operations?.deposit(list.get(0),1000.0)

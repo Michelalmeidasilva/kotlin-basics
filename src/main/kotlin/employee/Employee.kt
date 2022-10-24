@@ -6,11 +6,11 @@ open class Employee(
   val salary: Double,
   var compensation: Double? = null,
 ){
-  open val bonuses: Double  get() = salary * 0.1;
-  open val ocupation: String = "Employee";
+  open val bonuses: Double  get() = salary * 0.1
+  open val occupation: String = "Employee"
 
   override fun toString(): String {
-    return "$name\t\t$cpf \t\t$salary \t$compensation \t$bonuses\t$ocupation"
+    return "$name\t\t$cpf \t\t$salary \t$compensation \t$bonuses\t$occupation"
   }
 }
 

@@ -2,6 +2,7 @@ package bank
 
 import employee.Employee
 import employee.HeadManager
+import employee.SoftwareDeveloper
 import employee.Supervisor
 import org.junit.jupiter.api.BeforeEach
 import user.Account
@@ -17,8 +18,8 @@ class BankTest {
 
   @BeforeEach
   fun setUp(){
-    val employees = arrayListOf(
-      Employee("Inácio", "0303099342", 2000.0), Supervisor("Claudio", "0305049342", 6000.0,  "tfpw7erg"),
+    val employees = arrayListOf<Employee>(
+      SoftwareDeveloper("Inácio", "0303099342", 2000.0, 30.0), Supervisor("Claudio", "0305049342", 6000.0,  "tfpw7erg"),
       HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw10erg") )
 
     val list: ArrayList<Account> = arrayListOf(DepositAccount("Michel Silva", 1000, ), DepositAccount("José Klaus", 2030), CheckingAccount("Robson Juventude", 2058),  CheckingAccount("Joao milao", 2055))

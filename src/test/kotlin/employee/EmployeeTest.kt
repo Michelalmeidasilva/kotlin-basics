@@ -11,7 +11,7 @@ internal class EmployeeTest {
 
   @BeforeEach
   fun setUp() {
-    employe = Employee(name= "Michel", salary= 1000.0, cpf="04051133079")
+    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "test")
   }
 
   @AfterEach
@@ -38,6 +38,6 @@ internal class EmployeeTest {
 
   @Test
   fun getBonuses() {
-    assertEquals(100.0, employe?.bonuses, "should have a 100.0 value")
+    assertEquals(200.0, employe?.bonuses, "should have a 100.0 value")
   }
 }

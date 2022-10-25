@@ -9,13 +9,13 @@ class Operations(private val accounts: ArrayList<Account>?) {
   private fun existsAccount(account: Account): Account? = accounts?.find { personAccount -> personAccount.accountNumber == account.accountNumber }
 
 
-  private fun registerAccount(account: Account) = accounts?.add(account);
+  private fun registerAccount(account: Account) = accounts?.add(account)
 
   fun transferMoney(accountOrigin: Account, accountDestination: Account, amount: Double ): Boolean{
     if(existsAccount(accountOrigin) !== null && existsAccount(accountDestination) !== null){
       if(accountOrigin.balance >= amount ){
         accountOrigin.balance -= amount
-        accountDestination.balance += amount;
+        accountDestination.balance += amount
         return true
       }
     }
@@ -27,7 +27,7 @@ class Operations(private val accounts: ArrayList<Account>?) {
       val accountIndex = isAValidAccount(accountDestination)
 
       if(accountIndex != null && accounts?.get(accountIndex)!= null) {
-        accounts[accountIndex].balance =+ amount + accounts[accountIndex].taxes;
+        accounts[accountIndex].balance =+ amount + accounts[accountIndex].taxes
       }
     } else {
       throw Exception("Valor negativo para deposito não é permitido")
@@ -53,9 +53,9 @@ class Operations(private val accounts: ArrayList<Account>?) {
     }
 
     if(accountOrigin.balance >= amount) {
-      val value = BigDecimal(accountOrigin.balance) - BigDecimal(amount);
-      accountOrigin.balance = value.toDouble();
-    } else if(accountOrigin.balance < amount) {
+      val value = BigDecimal(accountOrigin.balance) - BigDecimal(amount)
+      accountOrigin.balance = value.toDouble()
+    } else {
       throw Exception("Não há esse valor na conta")
     }
   }

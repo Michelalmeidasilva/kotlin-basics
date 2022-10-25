@@ -1,17 +1,13 @@
 package employee
 
-open class Employee(
+abstract class Employee(
   var name: String,
   var cpf: String,
   val salary: Double,
   var compensation: Double? = null,
 ){
-  open val bonuses: Double  get() = salary * 0.1
-  open val occupation: String = "Employee"
-
-  override fun toString(): String {
-    return "$name\t\t$cpf \t\t$salary \t$compensation \t$bonuses\t$occupation"
-  }
+  abstract val bonuses: Double
+  abstract val occupation: String
 }
 
 

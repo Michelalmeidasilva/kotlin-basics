@@ -5,8 +5,9 @@ class HeadManager(
   cpf: String,
   salary: Double,
   val profit: Double,
-  password: String
-): EmployeeWithAuthentication(name = name, cpf = cpf, salary = salary, password = password) {
+  override val password: String,
+  override val login: String = name
+): Employee(name = name, cpf = cpf, salary = salary), Authentication {
   override val bonuses: Double get() = this.salary * 0.3
   override val occupation: String = "HeadManager"
   override fun toString(): String {

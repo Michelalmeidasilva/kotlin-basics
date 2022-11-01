@@ -1,17 +1,17 @@
 package bank
 
-import employee.EmployeeWithAuthentication
+import employee.Authentication
 
-class AccessBank(private val employeesWithAuthentication: ArrayList<EmployeeWithAuthentication>?) {
+class AccessBank(private val employeesWithAuthentication: ArrayList<Authentication>?) {
 
   fun auth(login: String, password: String): Boolean{
-    var isAuth = false;
+    var isAuth = false
 
-    employeesWithAuthentication?.forEach { it  -> if(it.password == password && it.name == login){
-      isAuth = true;
+    employeesWithAuthentication?.forEach { it  -> if(it.password == password && it.login == login){
+      isAuth = true
     }}
 
 
-    return isAuth;
+    return isAuth
   }
 }

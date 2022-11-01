@@ -13,7 +13,7 @@ class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: Array
     if( employees != null) {
       val usersWithAuth = employees?.filter{ it ->
         it is Supervisor || it is HeadManager
-      }  as ArrayList<EmployeeWithAuthentication>
+      }  as ArrayList<Authentication>
 
       access = AccessBank(usersWithAuth)
     }

@@ -1,6 +1,7 @@
 package user
 
-import bank.Bank
+import br.com.bytebank.user.*
+import br.com.bytebank.bank.*
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import kotlin.test.DefaultAsserter

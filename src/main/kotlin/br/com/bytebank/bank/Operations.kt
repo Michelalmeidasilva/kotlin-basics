@@ -1,6 +1,6 @@
-package bank
+package br.com.bytebank.bank
 
-import user.Account
+import br.com.bytebank.user.*
 import java.math.BigDecimal
 
 class Operations(private val accounts: ArrayList<Account>?) {

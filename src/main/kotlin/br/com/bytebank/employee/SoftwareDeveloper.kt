@@ -1,4 +1,4 @@
-package employee
+package br.com.bytebank.employee
 
 class SoftwareDeveloper(
   name: String,

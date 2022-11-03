@@ -1,10 +1,8 @@
-package employee
+package br.com.bytebank.bank
 
 interface Authentication {
   val password: String
-    get() = ""
 
   val login: String
-    get() = ""
 
 }

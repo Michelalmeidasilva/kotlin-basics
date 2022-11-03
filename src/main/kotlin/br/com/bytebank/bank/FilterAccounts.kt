@@ -1,6 +1,6 @@
-package bank
+package br.com.bytebank.bank
 
-import user.Account
+import br.com.bytebank.user.Account
 
 class FilterAccounts(private val list: ArrayList<Account>?) {
   fun byAccountNumber(number: Int): List<Account>? = this.list?.filter { it -> it?.accountNumber == number }

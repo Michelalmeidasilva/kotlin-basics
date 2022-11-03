@@ -1,7 +1,7 @@
-package bank
+package br.com.bytebank.bank
 
-import employee.*
-import user.Account
+import br.com.bytebank.employee.*
+import br.com.bytebank.user.*
 
 class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: ArrayList<Employee>? = ArrayList()) {
   var filters: FilterAccounts? = null
@@ -11,7 +11,7 @@ class Bank(var accounts: ArrayList<Account>? = ArrayList(), var employees: Array
 
   init{
     if( employees != null) {
-      val usersWithAuth = employees?.filter{ it ->
+      val usersWithAuth = employees?.filter{ it ->1
         it is Supervisor || it is HeadManager
       }  as ArrayList<Authentication>
 

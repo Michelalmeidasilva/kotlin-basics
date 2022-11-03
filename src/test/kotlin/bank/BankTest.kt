@@ -1,17 +1,11 @@
-package bank
 
-import employee.Employee
-import employee.HeadManager
-import employee.SoftwareDeveloper
-import employee.Supervisor
+import br.com.bytebank.bank.*
+import br.com.bytebank.employee.*
+import br.com.bytebank.user.*
+
 import org.junit.jupiter.api.BeforeEach
-import user.Account
-import user.CheckingAccount
-import user.DepositAccount
-import kotlin.test.DefaultAsserter
+import kotlin.test.*
 import kotlin.test.DefaultAsserter.assertEquals
-import kotlin.test.Test
-import kotlin.test.assertFailsWith
 
 class BankTest {
   var bank: Bank? = null

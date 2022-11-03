@@ -1,4 +1,6 @@
-package employee
+package br.com.bytebank.employee
+
+import br.com.bytebank.bank.*
 
 class HeadManager(
   name: String,

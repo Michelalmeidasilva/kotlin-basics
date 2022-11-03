@@ -1,4 +1,4 @@
-package employee
+package br.com.bytebank.employee
 
 abstract class Employee(
   var name: String,

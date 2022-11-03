@@ -9,7 +9,7 @@ import kotlin.test.Test
 
 class AccountTest {
   val bank = Bank()
-  private val account = Account("Michel", 10000)
+  private val account = Account(Client("Michel", "10000", "test"), 1000)
 
   @BeforeEach
   fun setUp() {
@@ -27,11 +27,11 @@ class AccountTest {
 
   @Test
   fun shouldHasAccountName(){
-    DefaultAsserter.assertEquals("Should has account name", "Michel", account.titular)
+    DefaultAsserter.assertEquals("Should has account name", "Michel", account.titular.name)
   }
 
   @Test
   fun shouldHasAccountNumber(){
-    DefaultAsserter.assertEquals("Should has account number", 10000, account.accountNumber)
+    DefaultAsserter.assertEquals("Should has account number", 1000, account.accountNumber)
   }
 }

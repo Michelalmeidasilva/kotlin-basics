@@ -16,7 +16,7 @@ class BankTest {
       SoftwareDeveloper("Inácio", "0303099342", 2000.0, 30.0), Supervisor("Claudio", "0305049342", 6000.0,  "tfpw7erg"),
       HeadManager("Juquinha", "0305099342", 8000.0,   399.0, "tfpw10erg") )
 
-    val list: ArrayList<Account> = arrayListOf(DepositAccount("Michel Silva", 1000, ), DepositAccount("José Klaus", 2030), CheckingAccount("Robson Juventude", 2058),  CheckingAccount("Joao milao", 2055))
+    val list: ArrayList<Account> = arrayListOf(DepositAccount(Client("Michel Silva", "michelsilva234", "michel"), 1000, ), DepositAccount(Client("José Klaus", "2030", "test"), 2030), CheckingAccount(Client("Robson Juventude", "2056", "testsd"), 300 ),  CheckingAccount(Client("Joao milao", "2055", "dadada"), 4000))
     bank = Bank(employees = employees, accounts = list )
 
     bank?.operations?.deposit(list.get(0),1000.0)
@@ -152,13 +152,13 @@ class BankTest {
 
   @Test
   fun shouldDepositMoneyWithCheckingAccount(){
-    val robson = bank?.accounts?.find { it -> it.accountNumber == 2058 }
+    val robson = bank?.accounts?.find { it -> it.accountNumber == 300 }
 
     if(robson != null) {
       bank?.operations?.deposit(robson, 4000.0)
     }
 
-    DefaultAsserter.assertEquals("Should has account number", 4000.1, bank?.filters?.byAccountNumber(2058)?.get(0)?.balance )
+    DefaultAsserter.assertEquals("Should has deposit a value to checking account", 4000.1, bank?.filters?.byAccountNumber(300)?.get(0)?.balance )
 
   }
 

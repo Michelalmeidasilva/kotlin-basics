@@ -1,6 +1,6 @@
 package br.com.bytebank.user
 
-open class Account(val titular: String = "", val accountNumber: Int) {
+open class Account(val titular: Client, val accountNumber: Int) {
   var balance: Double = 0.0
   open val taxes: Double = 0.0
 

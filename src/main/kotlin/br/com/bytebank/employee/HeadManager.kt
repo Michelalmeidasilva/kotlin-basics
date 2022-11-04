@@ -12,6 +12,8 @@ class HeadManager(
 ): Employee(name = name, cpf = cpf, salary = salary), Authentication {
   override val bonuses: Double get() = this.salary * 0.3
   override val occupation: String = "HeadManager"
+
+
   override fun toString(): String {
     return "$name\t\t$cpf \t\t$salary \t$compensation \t$bonuses \t$profit \t$occupation"
   }

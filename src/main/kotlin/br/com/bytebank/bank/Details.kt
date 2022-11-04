@@ -7,6 +7,11 @@ class Details(
   private val accounts: ArrayList<Account>?,
   private val employees: ArrayList<Employee>?,
 ) {
+  val log = object {
+    var starts: String = "date start"
+    var ends: String = "date ends"
+    var text: String = "text"
+  }
   fun getAccountsQuantities(): Int? = accounts?.size
 
   fun reportAccounts(): String {

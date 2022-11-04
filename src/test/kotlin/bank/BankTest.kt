@@ -2,14 +2,20 @@
 import br.com.bytebank.bank.*
 import br.com.bytebank.employee.*
 import br.com.bytebank.user.*
+import org.junit.jupiter.api.AfterEach
 
 import org.junit.jupiter.api.BeforeEach
 import kotlin.test.*
 import kotlin.test.DefaultAsserter.assertEquals
 
+
 class BankTest {
   var bank: Bank? = null
 
+  @AfterEach
+  fun setDown(){
+    Account.Counter.totalAccounts = 0;
+  }
   @BeforeEach
   fun setUp(){
     val employees = arrayListOf<Employee>(
@@ -162,4 +168,8 @@ class BankTest {
 
   }
 
+  @Test
+  fun shouldHaveFourAccountsCreated(){
+    DefaultAsserter.assertEquals("Should have four accounts created", 4, Account.Counter.totalAccounts )
+  }
 }

@@ -23,7 +23,23 @@
     O construtor precisa ter sempre as properties, nào é possivel passar as variaveis   
 
 
+    Alem dos metodos que herdam da Object, ainda existem as funções de component e copy
+    Com a existencia das functions components, é possivel realizar as desestruturações de membros de uma classe, essa desestruturação é feita através da ordem dos membros.
+    Já o metodo copy, faz a copia exata de um objeto, copiando todas os dados do objeto. 
+
+
+6 - Delegation 
+    
+   Como utilizar delegation no kotlin
+
+
+7 - Null safety
+
+   Diferentes checagens de nullables
+
+
+
 
 --- 
-### Kotlin  
-1. 
+### Kotlin  Coleções, arrays e listas
+1. Funções agregadoras

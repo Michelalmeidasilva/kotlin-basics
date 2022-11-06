@@ -1,5 +1,6 @@
 package br.com.bytebank.bank
 
+import br.com.bytebank.exceptions.NegativeDepositException
 import br.com.bytebank.user.*
 import java.math.BigDecimal
 
@@ -30,7 +31,7 @@ class Operations(private val accounts: ArrayList<Account>?) {
         accounts[accountIndex].balance =+ amount + accounts[accountIndex].taxes
       }
     } else {
-      throw Exception("Valor negativo para deposito não é permitido")
+      throw NegativeDepositException()
     }
   }
 

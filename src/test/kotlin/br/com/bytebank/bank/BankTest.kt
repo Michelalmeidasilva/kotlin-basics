@@ -25,6 +25,7 @@ class BankTest {
     val list: ArrayList<Account> = arrayListOf(DepositAccount(Client("Michel Silva", "michelsilva234", "michel"), 1000, ), DepositAccount(Client("José Klaus", "2030", "test"), 2030), CheckingAccount(Client("Robson Juventude", "2056", "testsd"), 300 ),  CheckingAccount(Client("Joao milao", "2055", "dadada"), 4000))
     bank = Bank(employees = employees, accounts = list )
 
+
     bank?.operations?.deposit(list.get(0),1000.0)
   }
 

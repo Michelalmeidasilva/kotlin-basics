@@ -1,17 +1,18 @@
-package employee
+package br.com.bytebank.employee
 
 import br.com.bytebank.employee.*
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-internal class HeadManagerTest {
-  private var employe: HeadManager? = null
+import org.junit.jupiter.api.Assertions.*
+
+internal class EmployeeTest {
+  var employe: Employee? = null
 
   @BeforeEach
   fun setUp() {
-    employe = HeadManager(name= "Michel", salary= 10000.0, cpf="04051133079", password = "123234", profit = 900.0)
+    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "test")
   }
 
   @AfterEach
@@ -38,12 +39,6 @@ internal class HeadManagerTest {
 
   @Test
   fun getBonuses() {
-    assertEquals(3000.0, employe?.bonuses, "should have a 3000.0 value")
-  }
-
-
-  @Test
-  fun getProfit() {
-    assertEquals(900.0, employe?.profit, "should have a 900.0 value")
+    assertEquals(200.0, employe?.bonuses, "should have a 100.0 value")
   }
 }

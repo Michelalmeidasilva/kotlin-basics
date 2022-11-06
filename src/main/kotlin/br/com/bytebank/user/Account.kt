@@ -12,10 +12,6 @@ open class Account(val titular: Client, val accountNumber: Int) {
      }
   }
 
-
-
-
-
   init {
     Counter.incremment()
   }

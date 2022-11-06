@@ -1,18 +1,18 @@
-package employee
+package br.com.bytebank.employee
 
 import br.com.bytebank.employee.*
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 
-internal class EmployeeTest {
-  var employe: Employee? = null
+internal class SupervisorTest {
+  var employe: Supervisor? = null
 
   @BeforeEach
   fun setUp() {
-    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "test")
+    employe = Supervisor(name= "Michel", salary= 1000.0, cpf="04051133079", password = "123234")
   }
 
   @AfterEach

@@ -1,4 +1,4 @@
-package user
+package br.com.bytebank.user
 
 import br.com.bytebank.user.*
 import br.com.bytebank.bank.*
